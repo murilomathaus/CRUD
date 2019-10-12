@@ -2,8 +2,9 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CRUD"
+             xmlns:converters="clr-namespace:CRUD.Converters"
              StartupUri="View/HomePage.xaml">
     <Application.Resources>
-         
+        <converters:PhoneLabelConverter x:Key="PhoneLabelConverter"/>
     </Application.Resources>
 </Application>

@@ -11,7 +11,28 @@
     <ListView ItemsSource="{Binding Clients}">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <Label Content="{Binding Name}"/>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="ID: " FontWeight="Bold"/>
+                        <Label Content="{Binding Index}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Nome: " FontWeight="Bold"/>
+                        <Label Content="{Binding Name}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Sobrenome: " FontWeight="Bold"/>
+                        <Label Content="{Binding LastName}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Idade: " FontWeight="Bold"/>
+                        <Label Content="{Binding Age}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Telefone: " FontWeight="Bold"/>
+                        <Label Content="{Binding Phone, Converter={StaticResource PhoneLabelConverter}}"/>
+                    </StackPanel>
+                </StackPanel>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
