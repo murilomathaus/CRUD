@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:CRUD.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      ShowsNavigationUI="False"
       Title="HomePage">
 
     <ListView ItemsSource="{Binding Clients}">

@@ -1,0 +1,40 @@
+﻿<Controls:MetroWindow x:Class="CRUD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:Icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Pages="clr-namespace:CRUD.View"
+        xmlns:local="clr-namespace:CRUD"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        Background="White">
+    <Grid>
+        <Controls:HamburgerMenu 
+          x:Name="Menu"
+          HamburgerWidth="48"
+          IsPaneOpen="True"
+          SelectedIndex="0"
+          ShowSelectionIndicator="True"
+          PaneBackground="DimGray"
+          PaneForeground="DarkGray"
+          VerticalScrollBarOnLeftSide="False"
+          ItemTemplate="{StaticResource MenuItemTemplate}">
+
+            <Controls:HamburgerMenu.ItemsSource>
+                <Controls:HamburgerMenuItemCollection>
+                    <Controls:HamburgerMenuIconItem Icon="{Icons:Material Kind=Home}" Label="Home" Tag="View/HomePage.xaml"/>
+                    <Controls:HamburgerMenuIconItem Icon="{Icons:Material Kind=Plus}" Label="Novo" Tag="View/NewClientPage.xaml"/>
+                </Controls:HamburgerMenuItemCollection>
+            </Controls:HamburgerMenu.ItemsSource>
+
+            <Controls:HamburgerMenu.ContentTemplate>
+                <DataTemplate>
+                    <Frame Source="{Binding ElementName=Menu, Path=SelectedItem.Tag}"/>
+                </DataTemplate>
+            </Controls:HamburgerMenu.ContentTemplate>
+        </Controls:HamburgerMenu>
+    </Grid>
+</Controls:MetroWindow>

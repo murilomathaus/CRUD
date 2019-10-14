@@ -1,6 +1,4 @@
-﻿using CRUD.ViewModel;
-using MahApps.Metro.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CRUD.View
+namespace CRUD.ViewModel
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for NewClientPage.xaml
     /// </summary>
-    public partial class HomePage : Page
+    public partial class NewClientPage : Page
     {
-        public HomePage()
+        public NewClientPage()
         {
             InitializeComponent();
-            this.DataContext = new HomeViewModel();
         }
     }
 }
