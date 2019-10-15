@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Prism.Mvvm;
+using Prism.Regions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,8 +9,19 @@ using System.Threading.Tasks;
 
 namespace CRUD.ViewModel
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : BindableBase, INavigationAware
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+        }
+
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+        }
     }
 }
