@@ -25,7 +25,6 @@ namespace CRUD.View
         public HomePage()
         {
             InitializeComponent();
-            this.DataContext = new HomeViewModel();
         }
     }
 }
