@@ -25,13 +25,5 @@ namespace CRUD
             Bootstrapper bootstrapper = new Bootstrapper();
             bootstrapper.Run();
         }
-
-        public void RegisterTypes(IContainerRegistry containerRegistry)
-        {
-            containerRegistry.Register<DbContextScope>();
-            containerRegistry.RegisterForNavigation<HomePage, HomeViewModel>(nameof(HomeViewModel));
-            containerRegistry.RegisterForNavigation<NewClientPage, NewClientViewModel>(nameof(NewClientViewModel));
-            containerRegistry.RegisterForNavigation<MainWindow, MainWindowViewModel>(nameof(MainWindowViewModel));
-        }
     }
 }
