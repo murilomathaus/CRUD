@@ -1,6 +1,7 @@
 ﻿using CRUD.Database;
 using CRUD.View;
 using CRUD.ViewModel;
+using Microsoft.EntityFrameworkCore;
 using Prism.Unity;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace CRUD
         {
             base.InitializeShell();
             App.Current.MainWindow = (Window)this.Shell;
-            App.Current.MainWindow.Show();
+            App.Current.MainWindow.Show();            
         }
 
         protected override void ConfigureContainer()

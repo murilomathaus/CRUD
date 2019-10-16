@@ -9,29 +9,47 @@ namespace CRUD.Database
 {
     public class DbContextScope : IDbContextScope
     {
-        readonly DatabaseContext database = DatabaseContext.Instance;
-
-        public void Create(Client client)
+        public void Add(Client client)
         {
-            database.Add(client);
-            database.SaveChanges();
+            using (var database = new DatabaseContext())
+            {
+                database.Add(client);
+                database.SaveChanges();
+            }
         }
 
         public void Delete(Client client)
         {
-            database.Remove(client);
-            database.SaveChanges();
+            using (var database = new DatabaseContext())
+            {
+                database.Remove(client);
+                database.SaveChanges();
+            }
         }
 
-        public Client Read(int? Id = null)
+        public Client Find(int? Id = null)
         {
-            return database.Clients.FirstOrDefault(c=>c.Index == Id);
+            using (var database = new DatabaseContext())
+            {
+                return database.Clients.FirstOrDefault(c => c.Index == Id);
+            }
         }
 
         public void Update(Client client)
         {
-            database.Update(client);
-            database.SaveChanges();
+            using (var database = new DatabaseContext())
+            {
+                database.Update(client);
+                database.SaveChanges();
+            }
+        }
+        
+        public List<Client> GetClients()
+        {
+            using (var database = new DatabaseContext())
+            {
+                return database.Clients.ToList();
+            }
         }
     }
 }

@@ -17,8 +17,13 @@ namespace CRUD.ViewModel
         {
             _dbContext = dbContext;
 #if DEBUG
-            Clients.Add(new Client() { Name = "José", Age = 32, Index = 1, LastName = "Silva" });
+            Clients = _dbContext.GetClients();
 #endif
+        }
+
+        private void AddClient()
+        {
+            _dbContext.Add(new Client() { Name = "José", Age = 32, Index = 1, LastName = "Silva" });
         }
     }
 }

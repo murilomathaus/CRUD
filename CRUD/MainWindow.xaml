@@ -9,6 +9,8 @@
         xmlns:Pages="clr-namespace:CRUD.View"
         xmlns:local="clr-namespace:CRUD"
         mc:Ignorable="d"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
         Title="MainWindow" Height="450" Width="800"
         Background="White">
     <Grid>
@@ -32,7 +34,7 @@
 
             <Controls:HamburgerMenu.ContentTemplate>
                 <DataTemplate>
-                    <Frame Source="{Binding ElementName=Menu, Path=SelectedItem.Tag}"/>
+                    <Frame NavigationUIVisibility="Hidden" Source="{Binding ElementName=Menu, Path=SelectedItem.Tag}"/>
                 </DataTemplate>
             </Controls:HamburgerMenu.ContentTemplate>
         </Controls:HamburgerMenu>

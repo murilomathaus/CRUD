@@ -9,9 +9,10 @@ namespace CRUD.Database
 {
     public interface IDbContextScope
     {
-        void Create(Client client);
-        Client Read(int? Id = null);
+        void Add(Client client);
+        Client Find(int? Id = null);
         void Update(Client client);
         void Delete(Client client);
+        List<Client> GetClients();
     }
 }

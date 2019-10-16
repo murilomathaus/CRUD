@@ -8,5 +8,9 @@ namespace CRUD.ViewModel
 {
     public class NewClientViewModel : BaseViewModel
     {
+        public NewClientViewModel()
+        {
+
+        }
     }
 }
