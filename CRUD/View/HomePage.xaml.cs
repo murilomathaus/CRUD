@@ -1,4 +1,5 @@
-﻿using CRUD.ViewModel;
+﻿using CRUD.Utils;
+using CRUD.ViewModel;
 using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,9 @@ namespace CRUD.View
         public HomePage()
         {
             InitializeComponent();
+            Binding binding = BindingOperations.GetBinding(SearchBox, TextBox.TextProperty);
+            binding.ValidationRules.Clear();
+            binding.ValidationRules.Add(new InputValidationRule() { Pattern = "^[0-9]*$", ErrorMessage = "Digite um número" });
         }
     }
 }

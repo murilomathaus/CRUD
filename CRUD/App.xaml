@@ -7,6 +7,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <converters:PhoneLabelConverter x:Key="PhoneLabelConverter"/>
+            <converters:LabelVisibilityConverter x:Key="LabelVisibilityConverter"/>
 
             <!-- Close, minimize and maximize buttons -->
             <Style TargetType="{x:Type mah:WindowButtonCommands}"
@@ -18,7 +19,6 @@
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="FontWeight" Value="DemiBold"/>
             </Style>
-            
             <!-- HamburguerMenu Side Icons-->
             <DataTemplate x:Key="MenuItemTemplate" DataType="{x:Type mah:HamburgerMenuIconItem}">
                 <Grid x:Name="RootGrid"

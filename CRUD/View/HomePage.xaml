@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:a="beha"
       xmlns:local="clr-namespace:CRUD.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -11,32 +12,40 @@
       ShowsNavigationUI="False"
       Title="HomePage">
 
-    <ListView ItemsSource="{Binding Clients}">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <StackPanel Orientation="Horizontal">
+    <StackPanel>
+        <TextBox x:Name="SearchBox" Text="{Binding SearchId}"/>
+        <ListView ItemsSource="{Binding Clients}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="ID: " FontWeight="Bold"/>
-                        <Label Content="{Binding Index}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="ID: " FontWeight="Bold"/>
+                            <Label Content="{Binding Index}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Nome: " FontWeight="Bold"/>
+                            <Label Content="{Binding Name}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Sobrenome: " FontWeight="Bold"/>
+                            <Label Content="{Binding LastName}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Idade: " FontWeight="Bold"/>
+                            <Label Content="{Binding Age}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Telefone: " FontWeight="Bold"/>
+                            <Label Content="{Binding Phone, Converter={StaticResource PhoneLabelConverter}}"/>
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Nome: " FontWeight="Bold"/>
-                        <Label Content="{Binding Name}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Sobrenome: " FontWeight="Bold"/>
-                        <Label Content="{Binding LastName}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Idade: " FontWeight="Bold"/>
-                        <Label Content="{Binding Age}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Telefone: " FontWeight="Bold"/>
-                        <Label Content="{Binding Phone, Converter={StaticResource PhoneLabelConverter}}"/>
-                    </StackPanel>
-                </StackPanel>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Ordenar por ID" Command="{Binding OrderByIdCommand}" Style="{StaticResource ButtonStyle}"/>
+            <Button Content="Ordenar por idade" Command="{Binding OrderByAgeCommand}" Style="{StaticResource ButtonStyle}"/>
+        </StackPanel>
+    </StackPanel>
 </Page>

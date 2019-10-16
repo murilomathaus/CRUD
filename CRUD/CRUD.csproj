@@ -204,6 +204,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Converters\LabelVisibilityConverter.cs" />
     <Compile Include="Converters\PhoneLabelConverter.cs" />
     <Compile Include="Database\DatabaseContext.cs" />
     <Compile Include="Database\DbContextScope.cs" />

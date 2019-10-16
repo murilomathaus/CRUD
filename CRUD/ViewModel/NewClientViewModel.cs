@@ -1,6 +1,7 @@
 ﻿using CRUD.Database;
 using CRUD.Model;
 using Prism.Commands;
+using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +66,19 @@ namespace CRUD.ViewModel
             }
         }
         public ICommand AddClientCommand { get; set; }
+        private bool _confirm;
+        public bool Confirm
+        {
+            get
+            {
+                return _confirm;
+            }
+
+            set
+            {
+                SetProperty(ref _confirm, value);
+            }
+        }
 
         private readonly IDbContextScope _dbContext;
         public NewClientViewModel(IDbContextScope dbContext)
@@ -81,11 +95,15 @@ namespace CRUD.ViewModel
         {
             var id = _dbContext.GetClients().Any() ? _dbContext.GetClients().Max(i => i.Index) : 0; //If there is none, return 0
             _dbContext.Add(new Client() { Name = Name, Age = Age.Value, Index = id + 1, LastName = LastName, Phone = Phone });
+            Confirm = true;
+            Task.Delay(3000);
+            Confirm = false;
         }
 
         private bool PropertiesNotNull()
         {
             return Name != null && LastName != null && Age != null;
         }
+
     }
 }
