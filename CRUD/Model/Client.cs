@@ -21,8 +21,6 @@ namespace CRUD.Model
         public string Name { get; set; }
         [Required]
         public string LastName { get; set; }
-        [MinLength(13)]
-        [MaxLength(14)]
         public string Phone { get; set; }
     }
 }

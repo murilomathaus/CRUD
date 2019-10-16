@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRUD.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,9 @@ namespace CRUD.ViewModel
         public NewClientPage()
         {
             InitializeComponent();
+            Binding binding = BindingOperations.GetBinding(AgeText, TextBox.TextProperty);
+            binding.ValidationRules.Clear();
+            binding.ValidationRules.Add(new InputValidationRule() {Pattern = "^[0-9]*$", ErrorMessage = "Digite um número"});
         }
     }
 }

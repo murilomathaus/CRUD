@@ -204,6 +204,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Converters\LabelVisibilityConverter.cs" />
     <Compile Include="Converters\PhoneLabelConverter.cs" />
     <Compile Include="Database\DatabaseContext.cs" />
     <Compile Include="Database\DbContextScope.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\InputValidationRule.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
