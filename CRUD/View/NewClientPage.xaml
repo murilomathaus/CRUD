@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CRUD.ViewModel"
+      xmlns:rules="clr-namespace:CRUD.Utils"
       mc:Ignorable="d" 
       xmlns:prism="http://prismlibrary.com/"
       prism:ViewModelLocator.AutoWireViewModel="True"
@@ -11,7 +12,24 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="NewClientPage">
 
-    <Grid>
-        
-    </Grid>
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Nome: " FontWeight="Bold" HorizontalAlignment="Stretch"/>
+            <TextBox Text="{Binding Name, Mode=TwoWay}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Sobrenome: " FontWeight="Bold"/>
+            <TextBox Text="{Binding LastName, Mode=TwoWay}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Telefone: " FontWeight="Bold"/>
+            <TextBox Text="{Binding Phone, Mode=TwoWay}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Idade: " FontWeight="Bold"/>
+            <TextBox x:Name="AgeText" Text="{Binding Age, Mode=TwoWay}">
+            </TextBox>
+        </StackPanel>
+            <Button Content="Adicionar" Command="{Binding AddClientCommand}" Style="{StaticResource ButtonStyle}"/>
+    </StackPanel>
 </Page>
